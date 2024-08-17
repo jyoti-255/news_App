@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f3f4f6;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            max-width: 1200px;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-weight: bold;
+            color: #343a40;
+            margin-bottom: 30px;
+        }
+        .news-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .news-item:hover {
+            transform: translateY(-5px);
+        }
+        .news-item h2 {
+            font-size: 1.75rem;
+            color: #007bff;
+        }
+        .news-item p {
+            font-size: 1.1rem;
+            color: #555555;
+        }
+        .news-item a {
+            color: #ff5733;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .news-item a:hover {
+            color: #c70039;
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 10px;
+            background-color: #343a40;
+            color: #ffffff;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Latest News</h1>
+        <div class="row">
+            {% for article in news_data.articles %}
+            <div class="col-md-6">
+                <div class="news-item">
+                    <h2>{{ article.title }}</h2>
+                    <p>{{ article.description }}</p>
+                    <a href="{{ article.url }}" target="_blank">Read more</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 News Website | All Rights Reserved</p>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
